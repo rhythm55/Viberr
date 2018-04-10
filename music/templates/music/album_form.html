@@ -1,0 +1,49 @@
+{% extends 'music/base.html' %}
+{% block title %}add a new album{% endblock %}
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+ <div class="row">
+    <div class="col-sm-12 col-md-7">
+        <div class="panel panel-default">
+         <div class="panel-body">
+              <h3>Add a new album</h3>
+              {% if error_message %}
+                    <p><strong>{{ error_message }}</strong></p>
+              {% endif %}
+             <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                 {% include 'music/form-template.html' %}
+                 <div class="form-group">
+                     <div class="col-sm-offset-2 col-sm-10">
+                         <button type="submit" class="btn btn-success">Submit</button>
+                     </div>
+                 </div>
+             </form>
+         </div>
+        </div>
+    </div>
+
+     <div class="col-sm-12 col-md-5">
+        <div class="panel panel_default">
+            <div class="panel-body">
+                <h3>what is viberr?</h3>
+                <p>viberr is an app that allows you to upload and store all of your music on the cloud</p>
+                <h3>how do i add music?</h3>
+                <p>first create an new album by filling out the form in this page. once an album is created you wil be able to add/upload songs. </p>
+                <h3>what are some album logo best practices?</h3>
+                <ul>
+                    <li>have a resolution of 512X512</li>
+                    <li>use common image formats such as.jpg</li>
+                    <li>remain under the 2mb limit</li>
+                    <li>square image look best</li>
+                </ul>
+            </div>
+        </div>
+     </div>
+</div>
+
+</div>
+{% endblock %}
